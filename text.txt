@@ -1,0 +1,29 @@
+4 bytes allocated for "x - int"!
+4 bytes still allocated!
+--------------------------------------------
+80 bytes allocated for "y - double[10]"!
+84 bytes still allocated!
+--------------------------------------------
+Additional 36 bytes allocated for x - int!
+120 bytes still allocated!
+--------------------------------------------
+60 bytes freed from y - double[10]!
+60 bytes still allocated!
+--------------------------------------------
+***********************************************
+Number of allocations: 2
+Number of deallocations: 0
+Number of reallocation's: 2
+---------------------------------------------
+Non-deallocated memory at pointer 0x01525E08.
+Size = 40; Name = "x - int"
+---------------------------------------------
+Non-deallocated memory at pointer 0x0152FC98.
+Size = 20; Name = "y - double[10]"
+***********************************************
+40 bytes freed for "x - int"!
+20 bytes still allocated!
+--------------------------------------------
+20 bytes freed for "y - double[10]"!
+0 bytes still allocated!
+--------------------------------------------
