@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include "memory_logger.h"
 
-int main()
-{
+int main() {
 	FILE* output = fopen("text.txt", "w");
 	if (output == NULL) {
 		printf("Failed to open file!\n");
@@ -37,4 +36,6 @@ int main()
 	free(y);
 
 	fclose(output);
+
+	return 0;
 }
