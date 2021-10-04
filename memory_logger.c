@@ -137,7 +137,7 @@ void (printMemoryLogs)() {
 		memoryFootprint.allocationCount);
 	fprintf(getOutFile(), "Number of deallocations: %zu\n",
 		memoryFootprint.deallocationCount);
-	fprintf(getOutFile(), "Number of reallocation's: %zu\n",
+	fprintf(getOutFile(), "Number of reallocations: %zu\n",
 		memoryFootprint.reallocationCount);
 	fprintf(getOutFile(), "---------------------------------------------\n");
 	for (size_t i = 0; i < memoryFootprint.allocationCount; i++) {

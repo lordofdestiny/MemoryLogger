@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif // !_CRT_SECURE_NO_WARNINGS
-
 #ifndef empty
 #define empty() do{}while(0)
 #endif
