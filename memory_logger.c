@@ -9,7 +9,7 @@ typedef struct {
 static struct {
 	size_t allocated, freed;
 	size_t allocationCount, deallocationCount, reallocationCount;
-	Allocation pointers[MAX_POINTER_COUNT];
+	Allocation* pointers;
 } memoryFootprint;
 
 static FILE* outFile;
@@ -25,6 +25,8 @@ static void atExitHook() {
 		outFile = stdout;
 		printMemoryLogs();
 	}
+
+	(free)(memoryFootprint.pointers);
 }
 
 void memoryLoggerInit(FILE* out) {
@@ -34,6 +36,8 @@ void memoryLoggerInit(FILE* out) {
 	initialized = 1;
 	outFile = out != NULL ? out : stdout;
 	atexit(atExitHook);
+
+	memoryFootprint.pointers = (calloc)(MAX_POINTER_COUNT, sizeof(Allocation));
 }
 
 int memoryLoggerAtExitHook(int status) {
