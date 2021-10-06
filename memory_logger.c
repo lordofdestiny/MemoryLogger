@@ -13,8 +13,8 @@ static struct {
 } memoryFootprint;
 
 static FILE* outFile;
-static int initialized = 0;
-static int printAtExit = 0;
+static bool initialized = 0;
+static bool printAtExit = 0;
 
 static FILE* getOutFile() {
 	return outFile != NULL ? outFile : stdout;
@@ -33,15 +33,15 @@ void memoryLoggerInit(FILE* out) {
 	if (initialized) {
 		return;
 	}
-	initialized = 1;
+	initialized = true;
 	outFile = out != NULL ? out : stdout;
 	atexit(atExitHook);
 
 	memoryFootprint.pointers = (calloc)(MAX_POINTER_COUNT, sizeof(Allocation));
 }
 
-int memoryLoggerAtExitHook(int status) {
-	return printAtExit = status != 0;
+bool memoryLoggerAtExitHook(bool status) {
+	return printAtExit = status;
 }
 
 void* m_malloc(size_t size, char* name) {

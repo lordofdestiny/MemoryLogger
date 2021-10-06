@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #ifndef empty
 #define empty() do{}while(0)
@@ -9,7 +10,7 @@
 #define _MEMORY_LOGGER_
 #define MAX_POINTER_COUNT 100000
 void memoryLoggerInit(FILE*);
-int memoryLoggerAtExitHook(int);
+bool memoryLoggerAtExitHook(bool);
 void* m_malloc(size_t, char*);
 void* m_calloc(size_t, size_t, char*);
 void* m_realloc(void*, size_t);
