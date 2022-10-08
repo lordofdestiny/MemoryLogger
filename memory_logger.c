@@ -6,7 +6,7 @@ typedef struct {
 	char* name;
 } Allocation;
 
-static struct {
+struct {
 	size_t allocated, freed;
 	size_t allocationCount, deallocationCount, reallocationCount;
 	Allocation* pointers;
